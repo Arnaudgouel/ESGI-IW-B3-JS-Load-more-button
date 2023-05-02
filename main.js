@@ -54,12 +54,27 @@ const concerts = [
     prix: 26,
   },
   {
-    date: '2011/09/01', 
+    date: '2011/09/03', 
     lieu: 'Paris', 
     chanteur: 'Beyoncé', 
     prix: 92,
   },
 ];
+
+const months = [
+  'janvier',
+  'février',
+  'mars',
+  'avril',
+  'mai',
+  'juin',
+  'juillet',
+  'aout',
+  'septembre',
+  'octobre',
+  'novembre',
+  'décembre',
+]
 const step = 3;
 let indice = 0;
 let button = document.querySelector('button');
@@ -69,9 +84,10 @@ const list = document.querySelector('#content');
 function createItem(item)
 {
   let htmlItem = document.createElement('li');
+  let date = new Date(item.date);
   htmlItem.innerHTML = `
     <p>${item.chanteur}</p>
-    <p>à ${item.lieu} le ${item.date}</p>
+    <p>à ${item.lieu} le ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}</p>
     <span>${item.prix}€</span>
   `;
 
